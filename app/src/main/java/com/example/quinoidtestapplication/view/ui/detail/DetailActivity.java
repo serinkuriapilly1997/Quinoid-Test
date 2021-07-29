@@ -1,7 +1,5 @@
 package com.example.quinoidtestapplication.view.ui.detail;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
@@ -10,9 +8,7 @@ import android.view.View;
 import com.example.quinoidtestapplication.R;
 import com.example.quinoidtestapplication.base.BaseActivity;
 import com.example.quinoidtestapplication.data.models.ImageUrlsModel;
-import com.example.quinoidtestapplication.data.models.UserDetailsModel;
 import com.example.quinoidtestapplication.databinding.ActivityDetailBinding;
-import com.example.quinoidtestapplication.databinding.ActivityMainBinding;
 import com.squareup.picasso.Picasso;
 
 import dagger.hilt.android.AndroidEntryPoint;
