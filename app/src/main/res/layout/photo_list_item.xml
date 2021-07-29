@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="listener"
+            type="com.example.quinoidtestapplication.view.listener.OnAdapterSelectedListener" />
+
+        <variable
+            name="item"
+            type="com.example.quinoidtestapplication.data.remote.bean.HomeBean" />
+
+        <variable
+            name="user"
+            type="com.example.quinoidtestapplication.data.models.UserDetailsModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@color/white">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/image_view"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_marginStart="27dp"
+            android:layout_marginEnd="27dp"
+            android:onClick="@{()->listener.onAdapterSelected(item)}"
+            android:scaleType="fitXY"
+            android:src="@drawable/placeholder_new"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/text_view_description"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="@{item.altDescription}"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="@+id/image_view"
+            app:layout_constraintStart_toStartOf="@+id/image_view"
+            app:layout_constraintTop_toBottomOf="@+id/image_view"
+            tools:text="Description" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/profile_image"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:elevation="10dp"
+            android:onClick="@{()->listener.onKeyValue(user)}"
+            app:cardCornerRadius="6dp"
+            app:cardElevation="2dp"
+            app:layout_constraintStart_toStartOf="@+id/text_view_description"
+            app:layout_constraintTop_toBottomOf="@+id/text_view_description">
+
+            <ImageView
+                android:id="@+id/roundedImageView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:scaleType="centerCrop"
+                android:src="@drawable/profile" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/text_view_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="15dp"
+            android:text="@{user.name}"
+            android:textColor="@color/red"
+            android:textSize="18sp"
+            android:onClick="@{()->listener.onKeyValue(user)}"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/profile_image"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/profile_image"
+            app:layout_constraintTop_toTopOf="@+id/profile_image"
+            tools:text="NAME" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="20dp"
+            android:background="@color/black_line"
+            app:layout_constraintTop_toBottomOf="@+id/profile_image" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
